@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Anton, Farro, Great_Vibes, Playfair_Display } from "next/font/google";
+import CountdownTimer from "./components/CountdownTimer";
 import FloatingLamps from "./components/FloatingLamps";
 import SmoothScroll from "./components/SmoothScroll";
 
@@ -74,6 +75,15 @@ const EVENTS_BOTTOM_ROW = [
   },
 ];
 
+const COUPLE_MESSAGE_TITLE = "A message from the couple";
+const COUPLE_MESSAGE_BODY =
+  "We are both so delighted that you are able to join us in celebrating what we hope will be one of the happiest days of our lives. The affection shown to us by so many people since our roka has been incredibly moving, and has touched us both deeply. We would like to take this opportunity to thank everyone most sincerely for their kindness. We are looking forward to see you at the wedding.";
+const COUNTDOWN_TARGET_DATE = "2026-04-28T00:00:00+05:30";
+const COUNTDOWN_TITLE = "The countdown begins";
+const COUNTDOWN_MESSAGE =
+  "Our families are excited that you are able to join us in celebrating what we hope will be one of the happiest days of our lives.";
+const COUNTDOWN_FOOTER = "\u00A9 Missing Piece 2025";
+
 function EventCard({ event, showTopRoute = false }) {
   return (
     <article className="flex flex-col items-center text-center text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.3)]">
@@ -132,21 +142,35 @@ export default function Home() {
           priority
         />
         <Image
-          src="/secondbg.png"
+          src="/second.png"
           alt="Wedding invitation background panel 2"
           className="w-full h-full "
           width={1100}
           height={1100}
           priority
         />
-        <Image
-          src="/thirdbg.png"
-          alt="Wedding invitation background panel 3"
-          className="w-full h-full "
-          width={1100}
-          height={1100}
-          priority
-        />
+        <div className="relative">
+          <Image
+            src="/third.png"
+            alt="Wedding invitation background panel 3"
+            className="w-full h-full "
+            width={1100}
+            height={1100}
+            priority
+          />
+          <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-4 text-center">
+            <div
+              className={`${greatVibes.className} mt-[8vh] max-w-[1180px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)]`}
+            >
+              <p className="text-[clamp(2.2rem,4.6vw,4.8rem)] leading-[1.02]">
+                {COUPLE_MESSAGE_TITLE}
+              </p>
+              <p className="mt-[clamp(2.4rem,9.5vh,7.5rem)] text-[clamp(1.9rem,3.35vw,3.65rem)] leading-[1.18]">
+                {COUPLE_MESSAGE_BODY}
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="relative">
           <Image
             src="/forthbg.png"
@@ -176,14 +200,39 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Image
-          src="/lastbg.png"
-          alt="Wedding invitation background panel 5"
-          className="w-full h-full "
-          width={1100}
-          height={1100}
-          priority
-        />
+        <div className="relative">
+          <Image
+            src="/lastbg.png"
+            alt="Wedding invitation background panel 5"
+            className="w-full h-full "
+            width={1100}
+            height={1100}
+            priority
+          />
+          <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-4 text-center">
+            <div className="max-w-[1050px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)]">
+              <p
+                className={`${playfairDisplay.className} text-[clamp(2.2rem,5.6vw,5rem)] leading-[1.02]`}
+              >
+                {COUNTDOWN_TITLE}
+              </p>
+              <CountdownTimer
+                targetDateISO={COUNTDOWN_TARGET_DATE}
+                className={`${playfairDisplay.className} mt-[clamp(1rem,2.3vw,2.2rem)] text-[clamp(2.1rem,4.9vw,4.6rem)] leading-none tracking-[0.08em]`}
+              />
+              <p
+                className={`${playfairDisplay.className} mx-auto mt-[clamp(1.3rem,3.8vw,3.8rem)] max-w-[980px] text-[clamp(1.15rem,2.15vw,2.1rem)] leading-[1.2]`}
+              >
+                {COUNTDOWN_MESSAGE}
+              </p>
+              <p
+                className={`${playfairDisplay.className} mt-[clamp(1.5rem,5.1vw,5.5rem)] text-[clamp(1rem,1.8vw,1.65rem)]`}
+              >
+                {COUNTDOWN_FOOTER}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 z-40">
@@ -192,18 +241,20 @@ export default function Home() {
             className={`${playfairDisplay.className} hero-title-enter mt-[-4vh] text-white [text-shadow:0_20px_58px_rgba(0,0,0,0.5)]`}
           >
             <p className="text-[clamp(3rem,10.8vw,7rem)] leading-[0.9] tracking-[0.09em]">
-              ABHISHEK
+              Akash
             </p>
             <p className="my-3 text-[clamp(1.1rem,3.2vw,2.6rem)] tracking-[0.6em]">
               WEDS
             </p>
             <p className="text-[clamp(3rem,10.8vw,7rem)] leading-[0.9] tracking-[0.1em]">
-              KANIKA
+              Prerna
             </p>
           </div>
         </section>
 
         <section className="h-screen" aria-hidden />
+
+        {/* <section className="h-screen" aria-hidden /> */}
 
         <section className="mt-84 flex h-auto items-center justify-center px-4 text-center">
           <div
