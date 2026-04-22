@@ -33,22 +33,22 @@ const MAP_REDIRECT_URL =
 const EVENTS_TOP_ROW = [
    {
     title: "Haldi",
-    imageSrc: "/haldi.png",
+    imageSrc: "/myhaldi.png",
     date: "Monday, 27 April 2026",
     venue: "Tulsi mangalam, Raipura chowk",
     time: "6pm Onwards",
   },
   {
-    title: "Shaadi",
-    imageSrc: "/Shadi.png",
-    date: "Wednesday, 29 April 2026",
-    venue: "Tulsi mangalam, Raipura chowk",
+    title: "Barat",
+    imageSrc: "/mywedding.png",
+    date: "Tuesday, 28 April 2026",
+    venue: "NIJ Niwas , Purani Basti ,Main Road",
     time: "6pm Onwards",
   },
   {
     title: "Reception",
-    imageSrc: "/reception.png",
-    date: "Friday, March 9th 2026",
+    imageSrc: "/myreception.png",
+    date: "Wednesday, 29 April 2026",
     venue: "Tulsi mangalam, Raipura chowk",
     time: "6pm Onwards",
   },
@@ -137,14 +137,14 @@ export default function Home() {
           />
         </motion.div>
         <Image
-          src="/second.png"
+          src="/second2bg.png"
           alt="Wedding invitation background panel 2"
           className="hidden h-full w-full md:block"
           width={1100}
           height={1100}
         />
         <Image
-          src="/secondmobile.png"
+          src="/mysecondmobile.png"
           alt="Wedding invitation background panel 2"
           className="block h-auto w-full md:hidden"
           width={693}
@@ -174,7 +174,7 @@ export default function Home() {
         </div>
         <div className="relative">
           <Image
-            src="/forthbg.png"
+            src="/myforth.png"
             alt="Wedding invitation background panel 4"
             className="hidden h-auto w-full md:block"
             width={1100}
@@ -182,7 +182,7 @@ export default function Home() {
             priority
           />
           <Image
-            src="/forthbgmobile.png"
+            src="/myforthmobile.png"
             alt="Wedding invitation background panel 4"
             className="block h-auto w-full md:hidden"
             width={1080}
@@ -289,12 +289,12 @@ export default function Home() {
             <p
               className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25]`}
             >
-              Late Shri Jagannath Sonkar &amp; Smt. Shobha Sonkar
+              Late Shri Jagganth Sonkar &amp; Late smt. Bhuri Bai Sonkar
             </p>
             <p
               className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25]`}
             >
-              Late Shri Virendra Purohit &amp; Smt. Viraj Purohit
+              Late Shri Parmanand &amp; Smt. Viraj Purohit
             </p>
             <p
               className={`${anton.className} mt-8 text-5xl leading-none tracking-[0.06em] md:text-[clamp(4.1rem,11vw,10rem)] md:leading-[0.92]`}
