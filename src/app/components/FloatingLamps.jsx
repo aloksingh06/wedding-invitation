@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const DESKTOP_LAMP_COUNT = 22;
-const MOBILE_LAMP_COUNT = 22;
+const MOBILE_LAMP_COUNT = 28;
+const MOBILE_BREAKPOINT = 768;
 const LAMP_SOURCES = ["/lamp.png", "/lamp2.png"];
 const CENTER_LAMP_RATIO = 0.2;
 const LEFT_BAND_MAX = 24;
@@ -47,6 +48,14 @@ const DEPTH_PRESETS = {
     zIndex: 52,
   },
 };
+
+function getIsMobileViewport() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.innerWidth < MOBILE_BREAKPOINT;
+}
 
 function seededNoise(seed) {
   const value = Math.sin(seed * 9277.7) * 10000;
@@ -122,13 +131,13 @@ function createLamp(index) {
     travel,
     exitAt,
     zIndex: preset.zIndex,
-    visibilityClass: "hidden sm:block",
+    visibilityClass: "hidden md:block",
   };
 }
 
 function createMobileLamp(index) {
   const preset = DEPTH_PRESETS.small;
-  const centerCandidate = seededNoise(index * 4.77 + 1.9) < 0.14;
+  const centerCandidate = seededNoise(index * 4.77 + 1.9) < 0.16;
 
   let left = centerCandidate
     ? between(index * 2.13 + 3.5, 36, 66)
@@ -147,8 +156,8 @@ function createMobileLamp(index) {
     src: LAMP_SOURCES[Math.floor(between(index * 2.71 + 6.6, 0, LAMP_SOURCES.length))],
     left,
     top,
-    width: Math.round(between(index * 0.93 + 2.4, 48, 86)),
-    scale: between(index * 1.06 + 4.1, 0.72, 0.98),
+    width: Math.round(between(index * 0.93 + 2.4, 42, 72)),
+    scale: between(index * 1.06 + 4.1, 0.3, 0.6),
     rotateBase: between(index * 2.87 + 7.3, -16, 16),
     rotateDrift: between(index * 1.95 + 2.7, -10, 10),
     xDrift: between(index * 2.35 + 3.6, -22, 22),
@@ -159,7 +168,7 @@ function createMobileLamp(index) {
     ),
     exitAt: between(index * 1.33 + 4.5, preset.exitAt[0], preset.exitAt[1]),
     zIndex: preset.zIndex,
-    visibilityClass: "block sm:hidden",
+    visibilityClass: "block md:hidden",
   };
 }
 
@@ -260,22 +269,28 @@ function LampSprite({ lamp, progress }) {
 }
 
 export default function FloatingLamps() {
-  const desktopLamps = useMemo(
-    () => {
-      const baseLamps = Array.from({ length: DESKTOP_LAMP_COUNT }, (_, index) =>
-        createLamp(index),
-      );
-      return tuneLeftSideBalance(baseLamps);
-    },
-    [],
-  );
-  const mobileLamps = useMemo(
-    () =>
-      Array.from({ length: MOBILE_LAMP_COUNT }, (_, index) =>
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateViewport = () => setIsMobile(getIsMobileViewport());
+    updateViewport();
+
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
+
+  const lamps = useMemo(() => {
+    if (isMobile) {
+      return Array.from({ length: MOBILE_LAMP_COUNT }, (_, index) =>
         createMobileLamp(index),
-      ),
-    [],
-  );
+      );
+    }
+
+    const baseLamps = Array.from({ length: DESKTOP_LAMP_COUNT }, (_, index) =>
+      createLamp(index),
+    );
+    return tuneLeftSideBalance(baseLamps);
+  }, [isMobile]);
 
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, {
@@ -286,10 +301,7 @@ export default function FloatingLamps() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-30 overflow-hidden">
-      {desktopLamps.map((lamp) => (
-        <LampSprite key={lamp.id} lamp={lamp} progress={smoothProgress} />
-      ))}
-      {mobileLamps.map((lamp) => (
+      {lamps.map((lamp) => (
         <LampSprite key={lamp.id} lamp={lamp} progress={smoothProgress} />
       ))}
     </div>
