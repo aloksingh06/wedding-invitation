@@ -72,7 +72,7 @@ const COUNTDOWN_FOOTER = "\u00A9 Missing Piece 2025";
 
 function EventCard({ event, showTopRoute = false }) {
   return (
-    <article className="flex flex-col items-center px-4 text-center text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.3)] md:px-0">
+    <article className="flex flex-col items-center px-4 text-center text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.3)] md:px-2 lg:px-4 xl:px-6">
       {/* {showTopRoute ? (
         <p
           className={`${farro.className} text-[clamp(0.9rem,1.1vw,1.35rem)] underline underline-offset-4`}
@@ -85,15 +85,15 @@ function EventCard({ event, showTopRoute = false }) {
         alt={`${event.title} ceremony`}
         width={500}
         height={580}
-        className="mt-3 h-[320px] w-auto object-contain md:h-[clamp(220px,24vw,500px)]"
+        className="mt-3 h-[320px] w-auto object-contain md:h-[clamp(220px,24vw,500px)] lg:h-[clamp(240px,26vw,550px)]"
       />
       <h3
-        className={`${playfairDisplay.className} text-2xl leading-none md:text-[clamp(2.6rem,4.2vw,3.2rem)]`}
+        className={`${playfairDisplay.className} text-2xl leading-none md:text-[clamp(2.6rem,4.2vw,3.2rem)] lg:text-[clamp(2.8rem,4.5vw,3.5rem)]`}
       >
         {event.title}
       </h3>
       <p
-        className={`${farro.className} mt-3 px-2 text-base leading-relaxed md:px-0 md:text-[clamp(1.05rem,1.35vw,0.8rem)] md:leading-[1.2]`}
+        className={`${farro.className} mt-3 px-2 text-base leading-relaxed md:px-0 md:text-[clamp(1.05rem,1.35vw,0.8rem)] md:leading-[1.2] lg:text-[clamp(1.1rem,1.4vw,1.1rem)] lg:leading-[1.3]`}
       >
         {event.date}
         <br />
@@ -107,15 +107,15 @@ function EventCard({ event, showTopRoute = false }) {
 
 export default function Home() {
   return (
-    <main className="relative overflow-x-clip">
+    <main className="relative overflow-x-hidden w-full">
       <SmoothScroll />
       <FloatingLamps />
 
-      <div className="pointer-events-none fixed inset-0 z-10 " />
+      <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden" />
 
-      <div className="h-auto">
+      <div className="h-auto w-full">
         <motion.div
-          className="relative h-auto min-h-[700svh] md:min-h-0"
+          className="relative h-auto min-h-[700svh] md:min-h-0 w-full"
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2 }}
@@ -159,9 +159,9 @@ export default function Home() {
             height={1100}
             priority
           />
-          <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-6 text-center md:px-4">
+          <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-6 text-center md:px-4 lg:px-8 xl:px-12">
             <div
-              className={`${greatVibes.className} mx-auto mt-20 max-w-[1180px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)] md:mt-[8vh]`}
+              className={`${greatVibes.className} mx-auto mt-20 max-w-[1180px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)] md:mt-[8vh] md:px-4 lg:px-8 lg:max-w-[1280px] xl:max-w-[1400px]`}
             >
               <p className="text-4xl leading-relaxed md:text-[clamp(2.2rem,4.6vw,4.8rem)] md:leading-[1.02]">
                 {COUPLE_MESSAGE_TITLE}
@@ -217,8 +217,8 @@ export default function Home() {
             height={1100}
             priority
           />
-          <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-6 text-center md:px-4">
-            <div className="max-w-[1050px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)]">
+          <div className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-6 text-center md:px-4 lg:px-8 xl:px-12">
+            <div className="max-w-[1050px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)] md:px-4 lg:px-8 lg:max-w-[1200px] xl:max-w-[1350px]">
               <p
                 className={`${playfairDisplay.className} text-2xl leading-relaxed md:text-[clamp(2.2rem,5.6vw,5rem)] md:leading-[1.02]`}
               >
@@ -243,8 +243,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-40 flex h-auto min-h-screen flex-col gap-16 md:block md:min-h-0 md:gap-0">
-        <section className="flex min-h-screen items-center justify-center px-6 text-center md:h-screen md:px-4">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-40 flex h-auto min-h-screen flex-col gap-16 overflow-hidden md:block md:min-h-0 md:gap-0">
+        <section className="flex min-h-screen items-center justify-center px-6 text-center md:h-screen md:px-4 lg:px-8 xl:px-12">
           <div
             className={`${playfairDisplay.className} hero-title-enter mt-0 text-white [text-shadow:0_20px_58px_rgba(0,0,0,0.5)] md:mt-[-4vh]`}
           >
@@ -264,9 +264,9 @@ export default function Home() {
 
         {/* <section className="h-screen" aria-hidden /> */}
 
-        <section className="mt-0 flex min-h-screen items-center justify-center px-6 py-20 text-center md:mt-84 md:h-auto md:px-4 md:py-0">
+        <section className="mt-0 flex min-h-screen items-center justify-center px-6 py-20 text-center md:mt-84 md:h-auto md:px-4 md:py-0 lg:px-8 xl:px-12">
           <div
-            className={`${playfairDisplay.className} max-w-[980px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)]`}
+            className={`${playfairDisplay.className} max-w-[980px] text-white [text-shadow:0_10px_30px_rgba(0,0,0,0.35)] md:px-4 lg:px-8`}
           >
             <p
               className={`${farro.className} text-base leading-relaxed tracking-[0.04em] md:text-[clamp(1rem,1.45vw,1.7rem)]`}
@@ -287,17 +287,17 @@ export default function Home() {
               With the heavenly blessings of
             </p>
             <p
-              className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25]`}
+              className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25] lg:text-[clamp(1.8rem,3.4vw,2.5rem)] lg:mt-10`}
             >
               Late Shri Jagganth Sonkar &amp; Late smt. Bhuri Bai Sonkar
             </p>
             <p
-              className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25]`}
+              className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25] lg:text-[clamp(1.8rem,3.4vw,2.5rem)] lg:mt-10`}
             >
               Late Shri Parmanand &amp; Smt. Viraj Purohit
             </p>
             <p
-              className={`${anton.className} mt-8 text-5xl leading-none tracking-[0.06em] md:text-[clamp(4.1rem,11vw,10rem)] md:leading-[0.92]`}
+              className={`${anton.className} mt-8 text-5xl leading-none tracking-[0.06em] md:text-[clamp(4.1rem,11vw,10rem)] md:leading-[0.92] lg:text-[clamp(4.5rem,11.5vw,10.5rem)] lg:mt-10`}
             >
               INVITE
             </p>
@@ -336,7 +336,7 @@ export default function Home() {
 
         <section className="min-h-screen py-20 md:min-h-[100svh] md:py-10">
           <div className="flex min-h-screen items-center">
-            <div className="mx-auto grid w-full max-w-[1800px] grid-cols-1 gap-10 px-4 md:grid-cols-3 md:gap-8 xl:px-12">
+            <div className="mx-auto grid w-full max-w-[1800px] grid-cols-1 gap-10 px-4 md:grid-cols-3 md:gap-8 md:px-6 lg:gap-10 xl:gap-12 xl:px-16 2xl:px-20">
               {EVENTS_TOP_ROW.map((event) => (
                 <EventCard key={event.title} event={event} showTopRoute />
               ))}
@@ -344,8 +344,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex min-h-screen items-center justify-center px-6 py-20 md:h-screen md:px-4 md:py-0">
-          <div className="gallery-slider-shell w-full max-w-[1800px] overflow-hidden">
+        <section className="flex min-h-screen items-center justify-center px-6 py-20 md:h-screen md:px-4 md:py-0 lg:px-8 xl:px-12">
+          <div className="gallery-slider-shell w-full max-w-[1800px] overflow-hidden mx-auto">
             <div className="gallery-slider-track">
               {[...GALLERY_IMAGES, ...GALLERY_IMAGES].map((image, index) => (
                 <div
@@ -366,8 +366,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex min-h-[50vh] items-center justify-center px-6 py-20 md:h-screen md:px-4 md:py-0">
-          <div className="pointer-events-auto relative h-[88vw] w-[88vw] md:h-[min(78vw,900px)] md:w-[min(78vw,900px)]">
+        <section className="flex min-h-[50vh] items-center justify-center px-6 py-20 md:h-screen md:px-4 md:py-0 lg:px-8 xl:px-12">
+          <div className="pointer-events-auto relative h-[88vw] w-[88vw] md:h-[min(78vw,900px)] md:w-[min(78vw,900px)] overflow-hidden">
             <Image
               src="/seerout.png"
               alt="See the route badge"
