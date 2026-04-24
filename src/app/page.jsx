@@ -289,12 +289,12 @@ export default function Home() {
             <p
               className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25] lg:text-[clamp(1.8rem,3.4vw,2.5rem)] lg:mt-10`}
             >
-              Late Shri Jagganth Sonkar &amp; Late smt. Bhuri Bai Sonkar
+              Late Shri Jagganth Sonkar  &amp; Late smt. Bhuri Bai Sonkar
             </p>
             <p
               className={`${greatVibes.className} mt-6 text-xl leading-relaxed md:mt-8 md:text-[clamp(1.7rem,3.3vw,2.35rem)] md:leading-[1.25] lg:text-[clamp(1.8rem,3.4vw,2.5rem)] lg:mt-10`}
             >
-              Late Shri Parmanand &amp; Smt. Viraj Purohit
+              Late Shri Parmanand Katholiya
             </p>
             <p
               className={`${anton.className} mt-8 text-5xl leading-none tracking-[0.06em] md:text-[clamp(4.1rem,11vw,10rem)] md:leading-[0.92] lg:text-[clamp(4.5rem,11.5vw,10.5rem)] lg:mt-10`}
