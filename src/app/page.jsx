@@ -193,7 +193,7 @@ export default function Home() {
               <p
                 className={`${playfairDisplay.className} text-7xl leading-[0.9] text-[#b7b6ff] md:text-[clamp(3.3rem,8.2vw,7.8rem)]`}
               >
-                Akash
+                Aakash
               </p>
               <p
                 className={`${greatVibes.className} -mt-1 text-4xl leading-none text-[#2ed9ff] md:-mt-2 md:text-[clamp(2.8rem,6.2vw,5rem)]`}
@@ -249,7 +249,7 @@ export default function Home() {
             className={`${playfairDisplay.className} hero-title-enter mt-0 text-white [text-shadow:0_20px_58px_rgba(0,0,0,0.5)] md:mt-[-4vh]`}
           >
             <p className="text-7xl leading-none tracking-[0.09em] md:text-[clamp(3rem,10.8vw,7rem)] md:leading-[0.9]">
-              Akash
+              Aakash
             </p>
             <p className="my-3 text-4xl tracking-[0.3em] md:text-[clamp(1.1rem,3.2vw,2.6rem)] md:tracking-[0.6em]">
               WEDS
@@ -311,7 +311,7 @@ export default function Home() {
               <p
                 className={`${playfairDisplay.className} text-5xl leading-none md:text-[clamp(4rem,10.5vw,9.6rem)] md:leading-[0.9]`}
               >
-                Akash
+                Aakash
               </p>
               <p
                 className={`${greatVibes.className} mt-[-0.2rem] text-4xl leading-none md:mt-[-0.4rem] md:text-[clamp(3.2rem,8vw,6.1rem)]`}
